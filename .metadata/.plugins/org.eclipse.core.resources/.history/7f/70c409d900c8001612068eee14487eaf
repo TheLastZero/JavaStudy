@@ -1,0 +1,9 @@
+package lesson;
+
+public class lesson16 {
+	public static void main(String[] args){
+		for(;;){
+			
+		}
+	}
+}

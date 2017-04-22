@@ -1,0 +1,9 @@
+package lesson02;
+/**
+ * 周长抽象类
+ * @author Administrator
+ *
+ */
+abstract public class girth {//周长
+	abstract void getGirth();
+}

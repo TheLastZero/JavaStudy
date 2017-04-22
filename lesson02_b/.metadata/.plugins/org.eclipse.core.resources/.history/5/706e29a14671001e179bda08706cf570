@@ -1,0 +1,21 @@
+package lesson02;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
+/**
+ * 自定义时间（年月日时分秒）输出“YYYY/MM/d hh点mm分ss秒”格式的时间
+ * @author Administrator
+ *
+ */
+public class lesson03 {
+	public static void main(String[] args) {
+		SimpleDateFormat sdf=new SimpleDateFormat("yyyy年mm日d日hh时mm分ss秒");
+		Date d=new Date();
+		
+		sdf.format(d);
+		
+		System.out.println(sdf.format(d));
+		
+	}
+}

@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename type &apos;Students.sru_modify&apos; to &apos;stu_modify&apos;&#x0D;&#x0A;- Original project: &apos;StudentSystem_JDBC&apos;&#x0D;&#x0A;- Original element: &apos;Students.sru_modify&apos;&#x0D;&#x0A;- Renamed element: &apos;Students.stu_modify&apos;&#x0D;&#x0A;- Update references to refactored element&#x0D;&#x0A;- Update textual occurrences in comments and strings" description="Rename type &apos;sru_modify&apos;" flags="589830" id="org.eclipse.jdt.ui.rename.type" input="/src&lt;Students{sru_modify.java[sru_modify" matchStrategy="1" name="stu_modify" qualified="false" references="true" similarDeclarations="false" stamp="1491705410737" textual="false" version="1.0"/>
+</session>

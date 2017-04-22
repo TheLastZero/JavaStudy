@@ -1,0 +1,10 @@
+package lesson;
+
+public class lesson16 {
+	public static void main(String[] args){
+		int i=1;
+		int j=4;
+		if(i++<4  ||  ++i<5)
+			System.out.println(i);
+	}
+}

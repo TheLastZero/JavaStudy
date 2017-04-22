@@ -1,0 +1,46 @@
+package cy.shujuku;
+import java.util.*;
+import java.sql.*;
+
+public class Shujuku 
+{
+	Connection ct=null;
+	PreparedStatement ps=null;
+	ResultSet rs=null;
+	
+	String driver="com.microsoft.sqlserver.jdbc.SQLServerDriver";
+	String url="jdbc:sqlserver://127.0.0.1:1433;databaseName=cyglxt";
+	String user="sa";
+	String passwd="ydyd4488321";
+	
+	public Shujuku()
+	{
+		try {
+			Class.forName(driver);
+			ct=DriverManager.getConnection(url,user,passwd);
+		} catch (Exception e) {}
+	}
+	public ResultSet query(String sql,String []paras)
+	{
+		try {
+			ps=ct.prepareStatement(sql);
+
+			for(int i=0;i<paras.length;i++)
+			{
+				ps.setString(i+1, paras[i]);
+			}
+			
+			rs=ps.executeQuery();
+		} catch (Exception e) {}
+		
+		return rs;
+	}
+	public void close()
+	{
+		try {
+			if(rs!=null) rs.close();
+			if(ps!=null) ps.close();
+			if(ct!=null) ct.close();
+		} catch (Exception e) {}
+	}
+}

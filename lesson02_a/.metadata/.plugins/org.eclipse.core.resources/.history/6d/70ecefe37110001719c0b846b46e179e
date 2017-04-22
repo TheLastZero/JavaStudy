@@ -1,0 +1,18 @@
+package lesson03;
+
+public class UsbFactory{//π§≥ß¿‡
+	UsbFactory(){
+		
+	}
+	UsbFactory(String a){
+		if(a.equals("Apple")){
+			Apple b=new Apple();
+			b.write();
+			b.read();
+		}else if(a.equals("Kingston")){
+			Kingston b=new Kingston();
+			b.write();
+			b.read();
+		}
+	}
+}

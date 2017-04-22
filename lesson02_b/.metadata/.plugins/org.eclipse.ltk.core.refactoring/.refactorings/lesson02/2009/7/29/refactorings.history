@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename type &apos;lesson02.lesson02_b&apos; to &apos;lesson01_b&apos;&#x0D;&#x0A;- Original project: &apos;lesson02&apos;&#x0D;&#x0A;- Original element: &apos;lesson02.lesson02_b&apos;&#x0D;&#x0A;- Renamed element: &apos;lesson02.lesson01_b&apos;&#x0D;&#x0A;- Update references to refactored element&#x0D;&#x0A;- Update textual occurrences in comments and strings" description="Rename type &apos;lesson02_b&apos;" flags="589830" id="org.eclipse.jdt.ui.rename.type" input="/src&lt;lesson02{lesson02_b.java[lesson02_b" matchStrategy="1" name="lesson01_b" qualified="false" references="true" similarDeclarations="false" stamp="1247661467198" textual="false" version="1.0"/>
+</session>

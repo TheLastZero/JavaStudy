@@ -1,0 +1,10 @@
+package lesson02;
+
+public class lesson01 {
+	public static void main(String[] args) {
+		char a='A';
+		int b=(int)a;
+		System.out.println(b);
+		
+	}
+}

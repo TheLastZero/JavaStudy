@@ -1,0 +1,19 @@
+package lesson04;
+
+import java.util.Random;
+
+/**
+ * 判断小偷是否进来了的类
+ * @author Administrator
+ *
+ */
+public class Thief {
+	void T(){
+		boolean i=new Random().nextBoolean();
+		if(i){//i为true表示有小偷进来
+			
+		}else{//i为false表示没有小偷
+			
+		}
+	}
+}

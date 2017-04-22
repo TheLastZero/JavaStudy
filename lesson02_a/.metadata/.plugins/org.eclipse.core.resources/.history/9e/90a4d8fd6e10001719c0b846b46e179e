@@ -1,0 +1,5 @@
+package lesson04;
+
+public interface Bell {
+	public abstract void Bell();
+}

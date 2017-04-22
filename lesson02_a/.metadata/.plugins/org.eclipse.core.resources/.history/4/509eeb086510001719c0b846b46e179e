@@ -1,0 +1,9 @@
+package lesson02;
+
+public class Text {
+	public static void main(String[] args) {
+		Tringle a=new Tringle();
+		
+		Circle b=new Circle();
+	}
+}

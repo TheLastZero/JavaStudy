@@ -1,0 +1,15 @@
+package lesson02;
+
+import java.util.Random;
+
+public class lesson01 {
+	public static void main(String[] args) {
+		
+		int r=new Random().nextInt()
+		
+		char a='z';
+		int b=(int)a;
+		System.out.println(b);
+		
+	}
+}

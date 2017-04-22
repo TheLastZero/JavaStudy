@@ -1,0 +1,337 @@
+package TankW;
+
+import java.util.Vector;
+
+/**
+ * 这里是关于坦克的原材料方向
+ */
+
+/**
+ * 这里用来接收坦克出现的位置，也就是横纵坐标
+ * 并且调整坦克的方向
+ * @author 小钢炮-ST-PRO
+ *
+ */
+class Tank{
+	//这里的x，y代表坦克的横纵坐标
+	int x=0,y=0;
+	//坦克的方向,0上，1左，2右，3下
+	int direction=0;
+	//坦克的移动速度
+	int speed=10;
+	//给敌人坦克加一个生命值
+	boolean EnemyTankLife=true;
+
+
+	//封装坦克的方向和速度
+	public int getDirection() {
+		return direction;
+	}
+
+	public void setDirection(int direction) {
+		this.direction = direction;
+	}
+
+	public int getSpeed() {
+		return speed;
+	}
+
+	public void setSpeed(int speed) {
+		this.speed = speed;
+	}
+
+	//用get和set封装x，y，以后的变量基本上都要封装，使用函数比直接使用变量要安全
+	public int getX() {
+		return x;
+	}
+
+	public void setX(int x) {
+		this.x = x;
+	}
+
+	public int getY() {
+		return y;
+	}
+
+	public void setY(int y) {
+		this.y = y;
+	}
+	Tank(int x,int y){//构造方法
+		this.x=x;
+		this.y=y;
+	}
+}
+
+class enemyTank extends Tank implements Runnable{
+	//这里是敌人的坦克类，也做成线程类,实现Runnable接口
+	int speed=2;//敌方坦克移动的速度
+
+	int time=0;
+	
+	public enemyTank(int x,int y){
+		super(x,y);
+	}
+
+	//声明一个集合类来装敌方坦克的子弹
+	Vector<ball> Eball=new Vector<ball>();
+	
+	//声明一个集合类，来装主类里已经声明好的坦克集合类
+	Vector<enemyTank> ETank=new Vector<enemyTank>();
+		
+	public void ETank(Vector<enemyTank> ETank){//从主类里接收坦克的集合类
+		this.ETank=ETank;
+	}
+	
+	public boolean avoid(){//为了避免敌方坦克重叠在一起而写的躲避各自的方法
+		
+		boolean b=false;
+		switch(this.direction){//判断敌方坦克的方向
+		case 0:
+			for(int i=0;i<ETank.size();i++){
+				//从敌人坦克的集合类里取出坦克,装载在下面的ET里
+				enemyTank ET=ETank.get(i);
+				if(ET!=this){
+					/**
+					 * 如果敌人的坦克不等于自己,
+					 * 因为当前敌方坦克需要和所有的敌方坦克进行坐标是否重叠的比较
+					 * 如果遍历整个坦克集合类，这其中是包括自己的，
+					 * 自己和自己比较坐标肯定是重合了的，
+					 * 所以在这里要不等于当前坦克，也就是不等于自己才继续走
+					 */
+					if(ET.direction==0||ET.direction==3){//如果敌人的坦克头是对着上或者下面
+						if(){
+							
+						}
+					}
+				}
+			}
+			;
+		}
+		return true;
+	}
+	
+	public void run(){
+		//写while循环是因为坦克子弹一直都在活动,直到死去才停止
+		//敌方坦克的移动
+		while(true){
+			switch(this.direction){
+			case 0:
+				for(int i=0;i<30;i++){
+					if(y>5){//如果y大于0的话才移动坦克，这样可以避免敌方坦克自动走到面板外面
+						y-=speed;
+					}
+					try{
+						//敌方坦克每走一次就休眠50毫秒
+						Thread.sleep(50);
+					}catch(Exception e){
+
+					}
+				}
+				break;
+			case 1:
+				for(int i=0;i<30;i++){
+					if(x>0){//如果x大于0的话才移动坦克，这样可以避免敌方坦克自动走到面板外面
+						x-=speed;
+					}
+					try{
+						//敌方坦克每走一次就休眠50毫秒
+						Thread.sleep(50);
+					}catch(Exception e){
+
+					}
+				}
+				break;
+			case 2:
+				for(int i=0;i<30;i++){
+					/**
+					 * 这里要避免坦克走出右边的画布
+					 * 画布为900，,700
+					 * 坦克自身也有厚度为60,所以这里x要小于900-60
+					 */
+					if(x<820){
+						x+=speed;
+					}		
+					try{
+						//敌方坦克每走一次就休眠50毫秒
+						Thread.sleep(50);
+					}catch(Exception e){
+
+					}
+				}
+				break;
+			case 3:
+				for(int i=0;i<30;i++){
+					/**
+					 * 这里要避免坦克走出下边的画布
+					 * 画布为900，,700
+					 * 坦克自身也有厚度为60,所以这里y要小于700-60
+					 */
+					if(y<580){
+						y+=speed;
+					}
+					try{
+						//敌方坦克每走一次就休眠50毫秒
+						Thread.sleep(50);
+					}catch(Exception e){
+
+					}
+				}
+				break;
+			}
+			//随机出现0到3之间的数字,传递给方向
+			this.direction=(int)(Math.random()*4);
+			if(this.EnemyTankLife==false){//坦克没有生命时就跳出走动的循环
+				break;
+			}
+			this.time++;//加上时间，子弹发射的就比较慢
+			if(time%2==0){
+				if(this.EnemyTankLife){//判断敌方坦克生命是否为真
+					if(Eball.size()<5){//看敌方坦克的集合类里的子弹，是否小于5颗
+						ball zd=null;
+
+						switch(this.direction){
+						case 0://坦克头对着上面子弹的方向
+							zd=new ball(x+15,y-25,direction);//这个x，y是坦克的位置
+							Eball.add(zd);//每发射一次子弹，都添加一颗子弹到名为aa的集合类里
+							break;
+						case 1://坦克头对着左边
+							zd=new ball(x-28,y+15,direction);
+							Eball.add(zd);
+							break;
+						case 2://坦克头对着右边
+							zd=new ball(x+75,y+15,direction);
+							Eball.add(zd);
+							break;
+						case 3://坦克头对着下面
+							zd=new ball(x+15,y+75,direction);
+							Eball.add(zd);
+							break;
+						}
+						Thread t5=new Thread(zd);
+						t5.start();
+					}
+				}
+			}
+		}
+	}
+}
+
+class MyTank extends Tank{
+
+	//声明一个集合类来装子弹，并且声明一个子弹类的对象
+	Vector<ball> aa =new Vector<ball>();
+	ball zd=null;
+	/**
+	 * 我的坦克和敌人的坦克都有一些共同的属性方法，
+	 * 把这些写在坦克类里，然后继承它
+	 * 如果我还想对我的坦克进行更改，这里还可以进行覆盖
+	 * 因为子弹是跟着坦克走的，所以子弹的功能大多都和坦克类有关
+	 * @param x
+	 * @param y
+	 */
+	public MyTank(int x,int y){
+		super(x,y);
+	}
+	public void fire(){//发射子弹的方法
+		switch(this.direction){
+		case 0://坦克头对着上面子弹的方向
+			zd=new ball(x+15,y-25,direction);//这个x，y是坦克的位置
+			aa.add(zd);//每发射一次子弹，都添加一颗子弹到名为aa的集合类里
+			break;
+		case 1://坦克头对着左边
+			zd=new ball(x-28,y+15,direction);
+			aa.add(zd);
+			break;
+		case 2://坦克头对着右边
+			zd=new ball(x+75,y+15,direction);
+			aa.add(zd);
+			break;
+		case 3://坦克头对着下面
+			zd=new ball(x+15,y+75,direction);
+			aa.add(zd);
+			break;
+		}
+		//new一个线程来发射子弹
+		Thread t=new Thread(zd);
+		t.start();
+	}
+
+	public void up(){
+		y-=speed;
+	}
+	public void down(){
+		y+=speed;
+	}
+	public void left(){
+		x-=speed;
+	}
+	public void right(){
+		x+=speed;
+	}
+}
+
+class ball implements Runnable{
+	//子弹类,将子弹做成一个线程类，因为敌人的子弹是可以随意动的
+	int x,y;
+	int direction;
+	int speed=10;
+	boolean life=true;//为false时就不再画子弹
+	public ball(int x,int y,int direction){//构造方法
+		this.x=x;
+		this.y=y;
+		this.direction=direction;
+	}
+	public void run(){
+		/**
+		 * run方法是覆盖的父类方法
+		 * 创建线程时，谁调用的start方法，程序就会去自动调用run方法
+		 * start在调用的时候会单开启一个线程去掉用，而不是直接调用
+		 */
+		while(true){
+			try{
+				/**
+				 * 不能让子弹一直发射，要给它一点停顿，也就是睡眠一点时间
+				 * 凡是线程下面的死循环里都要有个睡眠，不然程序很容易崩溃
+				 */
+				Thread.sleep(50);
+			}catch(Exception e){
+
+			}
+			switch(direction){//根据坦克头的方向，判断子弹射出的方向
+			case 0://坦克头向上
+				y-=speed;
+				break;
+			case 1://坦克头向左
+				x-=speed;
+				break;
+			case 2://坦克头向右
+				x+=speed;
+				break;
+			case 3://坦克头向下
+				y+=speed;
+				break;
+			}
+			if(x<0||x>900||y<0||y>700){
+				life=false;
+				break;
+			}
+		}
+	}
+}
+
+class bomb{//坦克爆炸的类
+	int x,y;
+	int liveTime=9;//生存期
+	boolean life=true;
+	public bomb(int x,int y){
+		this.x=x;
+		this.y=y;
+	}
+	public void live(){
+		if(liveTime>0){
+			liveTime--;
+		}else{
+			this.life=false;
+		}
+	}
+}

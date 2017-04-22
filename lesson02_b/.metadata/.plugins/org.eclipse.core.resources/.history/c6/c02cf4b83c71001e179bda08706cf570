@@ -1,0 +1,12 @@
+package lesson02;
+
+import java.util.Random;
+
+public class lesson01_b {
+	public static void main(String[] args) {
+		for(int i=0;i<100;i++){
+			int r=new Random().nextInt(990)+10;
+			System.out.println(r);
+		}
+	}
+}

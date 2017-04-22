@@ -1,0 +1,38 @@
+package cy.jiemian;
+
+import zidingyi.*;
+import java.awt.*;
+import javax.swing.*;
+import javax.swing.Timer;
+import java.util.*;
+import java.awt.event.*;
+import javax.imageio.*;
+import java.io.*;
+//import com.sun.java.swing.plaf.windows.resources.windows;
+
+public class Caozuo extends JFrame //implements ActionListener,MouseListener{
+{
+	Image titleIcon,timebg;
+	JMenuBar jmb;
+	JMenu jm1,jm2,jm3,jm4,jm5,jm6;
+	JMenuItem jmm1,jmm2,jmm3,jmm4,jmm5;
+	ImageIcon jm1_icon1,jm1_icon2,jm1_icon3,jm1_icon4,jm1_icon5;
+	JToolBar jtb;
+	JButton jb1,jb2,jb3,jb4,jb5,jb6,jb7,jb8,jb9,jb10;
+	JPanel jp1,jp2,jp3,jp4,jp5;
+	JPanel jp3_1,jp3_2,jp3_3,jp3_4,jp3_5,jp3_6,jp3_7;
+	ImagePanel jp1_imgPanel;
+	Image jp1_bg;
+	JLabel jp1_lab1,jp1_lab2,jp1_lab3,jp1_lab4,jp1_lab5,jp1_lab6,jp1_lab7,jp1_lab8;
+	JLabel jp2_lab1,jp2_lab2;
+	Image jp3_bg;
+	JLabel jp3_l1,jp3_l2,jp3_l3,jp3_l4,jp3_l5,jp3_l6,jp3_l7;
+	CardLayout cardjp2,cardjp3;
+	JSplitPane jsp1;
+	JLabel timeNow;
+	javax.swing.Timer t;
+	public static void main(String[] args)
+    {
+	
+	}
+}

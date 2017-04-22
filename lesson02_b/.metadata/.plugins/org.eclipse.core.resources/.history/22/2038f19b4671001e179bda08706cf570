@@ -1,0 +1,16 @@
+package lesson02;
+
+import java.util.Random;
+/**
+ * 1，2，3，4，5，6六点 随机数6产生的概率(投掷十次筛子)
+ * @author Administrator
+ *
+ */
+public class lesson01_c {
+	public static void main(String[] args) {
+		for(int i=0;i<10;i++){
+			int r=new Random().nextInt(5)+1;
+				System.out.println(r);
+		}
+	}
+}

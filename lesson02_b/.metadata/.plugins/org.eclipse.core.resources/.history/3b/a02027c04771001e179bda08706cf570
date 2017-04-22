@@ -1,0 +1,26 @@
+package lesson02;
+
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+
+/**
+ * 自定义时间（年月日时分秒）输出“YYYY/MM/d hh点mm分ss秒”格式的时间
+ * @author Administrator
+ *
+ */
+public class lesson03 {
+	public static void main(String[] args) {
+		SimpleDateFormat sdf=new SimpleDateFormat("yyyy年mm月d日hh时mm分ss秒");
+		
+		Calendar c=Calendar.getInstance();
+		c.set(2017,2,10,7, 17, 30);
+		
+		Date d=c.getTime();
+		
+		sdf.format(d);
+		
+		System.out.println(sdf.format(d));
+		
+	}
+}

@@ -1,0 +1,8 @@
+package lesson03;
+
+public class Text {
+	public static void main(String[] args) {
+		UsbFactory a=UsbFactory("Apple");
+		
+	}
+}

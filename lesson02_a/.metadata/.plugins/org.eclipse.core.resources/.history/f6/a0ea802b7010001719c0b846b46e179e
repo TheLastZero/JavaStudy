@@ -1,0 +1,14 @@
+package lesson04;
+
+import java.util.Random;
+
+/**
+ * 判断小偷是否进来了的类
+ * @author Administrator
+ *
+ */
+public class Thief {
+	void T(){
+		int i=new Random().nextInt(2);
+	}
+}

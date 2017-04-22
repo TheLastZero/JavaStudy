@@ -1,0 +1,9 @@
+package lesson02;
+
+import java.util.Calendar;
+
+public class lesson02 {
+	public static void main(String[] args) {
+		Calendar c=Calendar.getInstance();
+	}
+}

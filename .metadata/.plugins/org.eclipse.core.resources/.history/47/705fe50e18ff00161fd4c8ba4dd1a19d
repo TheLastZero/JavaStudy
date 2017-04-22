@@ -1,0 +1,44 @@
+package lesson2_51zixueUP_GUI;
+import java.awt.*;
+import javax.swing.*;
+/**
+ * 拆分窗口
+ * JSplitPane cf;//拆分窗口
+ * //拆分成左边列表，右边是标签
+ * cf=new JSplitPane(JSplitPane.HORIZONTAL_SPLIT,lb,bq);
+ * cf.setOneTouchExpandable(true);  可以收缩左右两边
+ * 
+ * JLable这个类里面可以放图
+ * bq = new JLable(new ImageIcon("图片地址"));
+ * @author 小钢炮-ST-PRO
+ *
+ */
+public class lesson09 extends JFrame{
+	//定义好所有的组件
+	JSplitPane cf;
+	JList lb;
+	JLabel bq;
+	public static void main(String[] args) {
+		lesson09 one = new lesson09();
+	}
+	lesson09(){
+		//String类型数组来装菜单,然后添加到JList
+		String[] cd ={"软件开发","游戏开发","平面设计","动画制作","室内设计"};
+		lb = new JList(cd);
+		//用JLable标签放图
+		bq = new JLabel(new ImageIcon("2.jpg"));
+		
+		//new好JSplitPane拆分窗口
+		cf = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT,lb,bq);
+		cf.setOneTouchExpandable(true);
+		
+		this.add(cf);
+		//初始化窗口
+		this.setTitle("用户信息");
+		this.setSize(600,400);
+		this.setLocation(700, 300);
+		this.setResizable(false);
+		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		this.setVisible(true);
+	}
+}

@@ -1,0 +1,11 @@
+package lesson04;
+/**
+ * 判断小偷是否进来了的类
+ * @author Administrator
+ *
+ */
+public class Thief {
+	void T(){
+		
+	}
+}

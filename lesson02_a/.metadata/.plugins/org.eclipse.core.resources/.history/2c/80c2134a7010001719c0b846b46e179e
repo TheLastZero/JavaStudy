@@ -1,0 +1,18 @@
+package lesson04;
+
+import java.util.Random;
+
+/**
+ *  接口铃 Bell 接口灯 Lamp 铃声能响alarm（），
+ *  灯能亮light（） 
+ *  自定义门door类 去实现有小偷进来时的报警装置。
+ * @author Administrator
+ *
+ */
+public class Text {
+	public static void main(String[] args) {
+		Door a=new Door();
+		
+		
+	}
+}
